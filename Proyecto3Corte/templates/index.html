@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block title %}Inicio - Calendario de Tareas{% endblock %}
+
+{% block content %}
+
+<div class="filtros-container">
+    <form method="get" class="filtro-form">
+        <label for="month">Mes:</label>
+        <select name="month" id="month">
+            {% for i in range(1, 13) %}
+                <option value="{{ i }}" {% if i == month %}selected{% endif %}>{{ i }}</option>
+            {% endfor %}
+        </select>
+
+        <label for="year">Año:</label>
+        <select name="year" id="year">
+            {% for y in range(2020, 2031) %}
+                <option value="{{ y }}" {% if y == year %}selected{% endif %}>{{ y }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="btn">Ver calendario</button>
+    </form>
+
+    <form method="get" action="{{ url_for('buscar') }}" class="filtro-form">
+        <label for="q">Buscar tarea:</label>
+        <input type="text" name="q" id="q" placeholder="Ej: estudiar, reunión" required>
+        <button type="submit" class="btn">Buscar</button>
+    </form>
+</div>
+
+<h1>Calendario de {{ month_name }} {{ year }}</h1>
+
+<a href="{{ url_for('agregar') }}" class="btn">+ Agregar Tarea</a>
+<a href="{{ url_for('todas') }}" class="btn">Ver todas las tareas</a>
+
+<table class="calendario">
+    <tr>
+        <th>Lun</th><th>Mar</th><th>Mié</th><th>Jue</th><th>Vie</th><th>Sáb</th><th>Dom</th>
+    </tr>
+    {% for semana in cal %}
+    <tr>
+        {% for dia in semana %}
+            {% if dia == 0 %}
+                <td class="vacio"></td>
+            {% else %}
+                <td>
+                    <div class="celda-dia">
+                        <div class="encabezado-dia">
+                            <strong class="{% if dia == dia_actual %}hoy-dia{% endif %}">{{ dia }}</strong>
+                            {% if dia in tareas_mes %}
+                                {% set comp = tareas_mes[dia]['completadas'] %}
+                                {% set pend = tareas_mes[dia]['pendientes'] %}
+                                <span class="estado-icono">
+                                    {% if comp > 0 and pend > 0 %}
+                                        📌
+                                    {% elif comp > 0 %}
+                                        ✅
+                                    {% elif pend > 0 %}
+                                        🕓
+                                    {% endif %}
+                                </span>
+                            {% endif %}
+                        </div>
+                        {% if dia in tareas_mes %}
+                            <ul>
+                                {% for tarea in tareas_mes[dia]['tareas'][:2] %}
+                                    <li>
+                                        <a href="{{ url_for('ver', fecha='%04d-%02d-%02d' % (year, month, dia)) }}">{{ tarea['titulo'] }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </td>
+            {% endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+
+<h2><center>Herman Giraldo</center></h2><h2><center>Anthony Montañez</center></h2>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}Agregar Tarea{% endblock %}
+
+{% block content %}
+<h1>Agregar Tarea</h1>
+<form method="POST">
+    <label for="fecha">Fecha:</label>
+    <input type="date" name="fecha" required value="{{ fecha_predefinida }}">
+
+    <label for="titulo">Título:</label>
+    <input type="text" name="titulo" required><br>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea name="descripcion" rows="4"></textarea><br>
+
+    <button type="submit" class="btn">Guardar</button>
+</form> 
+<a href="{{ url_for('index') }}" class="btn">⬅ Volver</a>
+{% endblock %}

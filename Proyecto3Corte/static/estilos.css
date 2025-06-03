@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #bbb9b9;
+    padding: 20px;
+    color: #2c3e50;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    margin: 10px 0;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    max-width: 400px;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.calendario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.calendario th, .calendario td {
+    border: 1px solid #ccc;
+    text-align: left;
+    vertical-align: top;
+    padding: 10px;
+    height: 100px;
+    width: 14.2%;
+}
+
+.calendario td.vacio {
+    background: #ecf0f1;
+}
+
+ul {
+    padding-left: 16px;
+}
+
+ul.tareas li {
+    background: #ecf0f1;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+}
+.btn.eliminar {
+    background-color: #e74c3c;
+    margin-left: 10px;
+}
+
+.btn.eliminar:hover {
+    background-color: #c0392b;
+}
+.filtro-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.filtro-form label {
+    font-weight: bold;
+}
+
+.filtro-form select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+}
+.tarea-completada {
+    background-color: #d5f5e3;
+    text-decoration: line-through;
+    opacity: 0.8;
+}
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.filtro-form {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filtro-form label {
+    font-weight: bold;
+}
+
+.filtro-form input[type="text"],
+.filtro-form select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+.resumen-dia {
+    background-color: #fdfefe;
+    border-left: 5px solid #3498db;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.05);
+    max-width: 500px;
+}
+
+.resumen-dia ul {
+    list-style: none;
+    padding: 0;
+}
+
+.resumen-dia li {
+    margin-bottom: 5px;
+}
+.estado-dia {
+    margin-top: 5px;
+    font-size: 20px;
+}
+.hoy-dia {
+    background-color: #f1c40f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.resumen-dia h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #2c3e50;
+}.calendario td {
+    vertical-align: top;
+    padding: 8px;
+    height: 100px;
+    width: 14.2%;
+}
+
+.celda-dia {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100%;
+}
+
+.encabezado-dia {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hoy-dia {
+    background-color: #f1c40f;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.estado-icono {
+    font-size: 18px;
+}
+.contenedor-blanco {
+    background-color: rgba(255, 255, 255, 0.92);
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}

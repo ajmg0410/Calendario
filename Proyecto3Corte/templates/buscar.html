@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Resultados de búsqueda{% endblock %}
+
+{% block content %}
+<h1>Resultados para: "{{ consulta }}"</h1>
+
+{% if resultados %}
+    <ul class="tareas">
+        {% for r in resultados %}
+            <li class="{% if r.completada %}tarea-completada{% endif %}">
+                <strong>{{ r.titulo }}</strong><br>
+                {{ r.descripcion }}<br>
+                <small>📅 Fecha: {{ r.fecha }}</small><br>
+                <a href="{{ url_for('ver', fecha=r.fecha) }}" class="btn">Ver día</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No se encontraron tareas con ese título.</p>
+{% endif %}
+
+<a href="{{ url_for('index') }}" class="btn">⬅ Volver al calendario</a>
+{% endblock %}

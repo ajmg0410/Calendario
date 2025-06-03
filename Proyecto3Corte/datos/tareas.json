@@ -1,0 +1,16 @@
+{
+    "2025-06-01": [
+        {
+            "titulo": "asd",
+            "descripcion": "asd",
+            "completada": true
+        }
+    ],
+    "2025-06-02": [
+        {
+            "titulo": "gh",
+            "descripcion": "123",
+            "completada": false
+        }
+    ]
+}
